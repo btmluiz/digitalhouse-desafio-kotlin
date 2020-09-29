@@ -1,3 +1,3 @@
-# Parte A
-![alt text](https://github.com/btmluiz/digitalhouse-desafio-kotlin/blob/parte/A/UML.png?raw=true)
+# Parte B
+![alt text](https://github.com/btmluiz/digitalhouse-desafio-kotlin/blob/parte/B/UML.png?raw=true)
 
