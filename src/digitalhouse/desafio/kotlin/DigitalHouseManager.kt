@@ -16,7 +16,7 @@ class DigitalHouseManager {
     }
 
     fun registrarProfessorAdjunto(nome: String, sobrenome: String, cod: Int, qtdHoras: Int) {
-        if (professores.filter { it.cod == cod }.isEmpty()) {
+        if (professores.filter { it.cod == cod && it is ProfessorAdjunto }.isEmpty()) {
             professores.add(ProfessorAdjunto(cod, nome, sobrenome, qtdHoras))
         } else {
             println("Professor adjunto já cadastrado!")
@@ -24,7 +24,7 @@ class DigitalHouseManager {
     }
 
     fun registrarProfessorTitular(nome: String, sobrenome: String, cod: Int, especialidade: String) {
-        if (professores.filter { it.cod == cod }.isEmpty())
+        if (professores.filter { it.cod == cod && it is ProfessorTitular }.isEmpty())
             professores.add(ProfessorTitular(cod, nome, sobrenome, especialidade))
         else
             println("Professor titular já cadastrado!")
@@ -67,12 +67,12 @@ class DigitalHouseManager {
 
     fun alocarProfessores(codCurso: Int, codProfTitular: Int, codProfAdjunto: Int) {
         try {
-            val professorTitular = professores.filter { it is ProfessorTitular && it.cod == codProfTitular }
-            val professorAdjunto = professores.filter { it is ProfessorAdjunto && it.cod == codProfAdjunto }
+            val professorTitular = professores.first { it is ProfessorTitular && it.cod == codProfTitular }
+            val professorAdjunto = professores.first { it is ProfessorAdjunto && it.cod == codProfAdjunto }
             try {
                 val curso = cursos.first { it.cod == codCurso }
-                curso.professorTitular = professorTitular as ProfessorTitular?
-                curso.professorAdjunto = professorAdjunto as ProfessorAdjunto?
+                curso.professorTitular = professorTitular as ProfessorTitular
+                curso.professorAdjunto = professorAdjunto as ProfessorAdjunto
 
                 println("Professores alocados com sucesso ao curso ${curso.nome}")
             } catch (e: NoSuchElementException) {
