@@ -27,5 +27,7 @@ fun main() {
     digitalHouseManager.matricularAluno(1002, 20002)
     digitalHouseManager.matricularAluno(1003, 20002)
 
+    println("Matriculado em: ${digitalHouseManager.consultarMatricula(1000)}")
+
     println(digitalHouseManager)
 }

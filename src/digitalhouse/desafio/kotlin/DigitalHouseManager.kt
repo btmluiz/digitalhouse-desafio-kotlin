@@ -83,6 +83,10 @@ class DigitalHouseManager {
         }
     }
 
+    fun consultarMatricula(cod: Int): List<Matricula>{
+        return matriculas.filter { it.aluno.cod == cod }
+    }
+
     override fun toString(): String {
         return "DigitalHouseManager(alunos=$alunos, professores=$professores, cursos=$cursos, matriculas=$matriculas)"
     }
