@@ -9,6 +9,19 @@ data class Curso (
 ) {
     val alunos = mutableListOf<Aluno>()
 
+    fun addAluno(aluno: Aluno): Boolean{
+        return if (alunos.size < qtdAlunos){
+            alunos.add(aluno)
+            true
+        } else {
+            false
+        }
+    }
+
+    fun delAluno(aluno: Aluno) {
+        alunos.remove(aluno)
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
