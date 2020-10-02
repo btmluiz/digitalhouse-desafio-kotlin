@@ -3,10 +3,10 @@ package digitalhouse.desafio.kotlin
 data class Curso (
         val cod: Int,
         var nome: String,
-        var professorTitular: ProfessorTitular,
-        var professorAdjunto: ProfessorAdjunto,
         var qtdAlunos: Int,
 ) {
+    var professorTitular: ProfessorTitular? = null
+    var professorAdjunto: ProfessorAdjunto? = null
     val alunos = mutableListOf<Aluno>()
 
     fun addAluno(aluno: Aluno): Boolean{
@@ -38,6 +38,6 @@ data class Curso (
     }
 
     override fun toString(): String {
-        return "Curso(cod=$cod, nome='$nome')"
+        return "Curso(cod=$cod, nome='$nome', qtdAlunos=$qtdAlunos, professorTitular=$professorTitular, professorAdjunto=$professorAdjunto, alunos=$alunos)"
     }
 }
