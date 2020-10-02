@@ -1,11 +1,11 @@
 package digitalhouse.desafio.kotlin
 
-data class Professor(
+abstract class Professor(
         override val cod: Int,
         override var nome: String,
         override var sobrenome: String
 ) : Cadastro {
-    
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
